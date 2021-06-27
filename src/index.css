@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #81c784;
+  /* background-color: #81c784; */
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -17,38 +17,5 @@ code {
 
 .root-class {
   width: 100%;
-}
-
-.float{
-	position:fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color: black;
-	color: yellow;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-}
-
-.float .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: yellow;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  
-  /* Position the tooltip */
-  position: absolute;
-  z-index: 1;
-  bottom: 100%;
-  left: 50%;
-  margin-left: -60px;
-}
-
-.float:hover .tooltiptext {
-  visibility: visible;
+  overflow: hidden;
 }

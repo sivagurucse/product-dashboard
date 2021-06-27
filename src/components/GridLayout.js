@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import { Grid, Paper } from '@material-ui/core';
+import PaperContent from './PaperContent';
 
 function getRandomColor() {
     return 'rgb(' +
@@ -14,11 +14,11 @@ function getRandomColor() {
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        paddingTop: '50px'
+        padding: '50px 0 20px 0'        
     },
     paper: {
-        height: 180,
-        width: 180,
+        height: 250,
+        width: 200,
         '&:hover': {
             boxShadow: '10px 10px 7px rgba(0,0,0,.7)',
             transform: 'rotate(0deg) !important',
@@ -32,37 +32,29 @@ const useStyles = makeStyles((theme) => ({
     },
     control: {
         padding: theme.spacing(2),
-    },
-    stickyName: {
-        marginTop: '40%',
-        fontWeight: 500
-    }
+    }    
 }));
 
-export default function SpacingGrid(props) {
-    const [spacing] = React.useState(5);
+export default function StickyLayout(props) {
+    const [spacing] = useState(5);    
     const classes = useStyles();
-    console.log(JSON.stringify(props.data));
     return (
         <Grid container className={classes.root} spacing={2}>
             <Grid item xs={12}>
                 <Grid container justify="center" spacing={spacing}>
-                    {props.data.map((object, index) => (
+                    {props.jsonData.map((object, index) => (
                         <Grid key={object.sNo} item>
                             <Paper
                                 className={classes.paper}
-                                elevation={3}
+                                elevation={24}
                                 style={{
-                                    transform: `rotate(${(index % 2 === 0 ? -1 : 1) * (Math.floor(Math.random() * 20))}deg)`,
+                                    transform: `rotate(${(index % 2 === 0 ? -1 : 1) * (Math.floor(Math.random() * 10))}deg)`,
                                     backgroundColor: getRandomColor()
-                                    // backgroundColor: "hsl(" + Math.random() * 360 + ", 100%, 75%)"
                                 }}
                             >
-                                <Grid container justify="center" className={classes.paperContainer}>
-                                    <Grid className={classes.stickyName}>
-                                        {object.Title}
-                                    </Grid>
-                                </Grid>
+                                <PaperContent
+                                    data={object}
+                                />
                             </Paper>
                         </Grid>
                     ))}
