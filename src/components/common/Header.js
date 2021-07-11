@@ -5,7 +5,8 @@ import WbIncandescentIcon from '@material-ui/icons/WbIncandescent';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    paddingLeft: '20px'
   },
   heading: {
     fontWeight: 600

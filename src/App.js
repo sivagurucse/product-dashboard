@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AppBar, Grid, Typography } from '@material-ui/core';
+import { AppBar, Grid } from '@material-ui/core';
 import csvtojson from 'csvtojson';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
@@ -71,7 +71,7 @@ export default function App() {
           <Header />
         </Grid>
       </AppBar>
-      <Grid container justify="center">
+      {showLoader && <Grid container justify="center">
         <Grid className={classes.alignItemsToMiddleOfScreen}>
           <Loader
             type="ThreeDots"
@@ -81,7 +81,7 @@ export default function App() {
             color={'green'}
           />
         </Grid>
-      </Grid>
+      </Grid>}
       {!showError && !showLoader && <Grid item>
         <GridLayout
           jsonData={jsonvalue} />
